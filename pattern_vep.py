@@ -50,7 +50,7 @@ class LabJackTrigger:
         code = self.TRIGGERS[trigger_name]
         
         if self.enable and self.device:
-            self.device.setEIOPort(code)
+            self._setEIOPort(code)
             
         # Optional: Print to console for debugging
         print(f"[TTL Sent] {trigger_name} (Code: {code})")
