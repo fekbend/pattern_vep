@@ -26,11 +26,20 @@ class LabJackTrigger:
             try:
                 import u3
                 self.device = u3.U3()
-                self.device.setEIOPort(0) # Clear port initially
+                self._setEIOPort(0) # Clear port initially
                 print("LabJack U3 connected successfully.")
             except Exception as e:
                 print(f"Warning: LabJack not found or failed to connect ({e}). Running in Mock Mode.")
                 self.enable = False
+    
+    def _setEIOPort(self, state):
+        """Custom method for communicating with LabJack."""
+        import u3
+        cmd = u3.PortStateWrite([0, state, 0])
+        fb = u3.PortStateRead()
+        # Send commands and get feedback
+        feedback = self.device.getFeedback(cmd, fb)
+        return feedback[-1]['EIO']
 
     def send(self, trigger_name: str):
         """Sends a defined trigger code to the LabJack."""
