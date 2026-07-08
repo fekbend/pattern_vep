@@ -1,0 +1,11 @@
+[project]
+name = "pattern-reversal-vep"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "labjackpython>=2.1.0",
+    "numpy<2",
+    "psychopy>=2023",
+]
