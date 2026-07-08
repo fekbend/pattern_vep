@@ -73,8 +73,8 @@ class PatternReversalVEP:
         screen_height_px = user32.GetSystemMetrics(1)
         
         # 2. Define the PHYSICAL setup
-        viewing_distance_cm = 50.0  # Distance from eyes to screen
-        screen_width_cm = 23.0      # Physical width of the display area
+        viewing_distance_cm = 58.0  # Distance from eyes to screen
+        screen_width_cm = 34.5      # Physical width of the display area
         
         # 3. Create a dynamic monitor profile
         my_mon = monitors.Monitor(
