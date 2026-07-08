@@ -104,7 +104,7 @@ class PatternReversalVEP:
             win=self.win,
             tex=texture,
             size=(max(self.win.size) * 2, max(self.win.size) * 2), # Cover entire screen
-            sf=spatial_freq, # Spatial Frequency (Cycles per pixel)
+            sf=spatial_freq, # Spatial Frequency (Cycles per degree)
             interpolate=False # Keep edges perfectly sharp
         )
         
@@ -186,6 +186,8 @@ if __name__ == '__main__':
     ttl_trigger = LabJackTrigger(enable=True)
     
     # Initialize task (Set fullscreen=False for easier debugging)
+    # Large checks: spatial_freq = 0.5
+    # Small checks: spatial_freq = 2.0
     vep_task = PatternReversalVEP(
         trigger_system=ttl_trigger, 
         spatial_freq=0.5, 
